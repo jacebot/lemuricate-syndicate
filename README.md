@@ -184,6 +184,14 @@ Waveforms are cached for the session, so reloading a track is instant.
 | A button controls two things | A different mapping profile is also active on the same input. Disable the other profile. |
 | Meters/feedback stop after a network change | The iPad or computer IP changed. Update Syndicate's feedback host or the bridge's `--ipad` value. |
 
+### Checking the MIDI messages
+When a control does nothing, or does the wrong thing, watch what Lemur actually sends:
+
+- **Mac:** [MIDI Monitor](https://www.snoize.com/midimonitor/) (free). Select **Daemon Output 0 / Daemon Input 0** as the source, then touch a control. You'll see its channel, CC number and value. Compare them with the binding in Syndicate's mapping. The pitch faders, play buttons and browse dial use CC messages, and touch-to-seek uses channel 16, CC1–4.
+- **Windows:** [MIDI-OX](http://www.midiox.com/) (free) does the same job.
+
+For the OSC side (feedback from Syndicate), run the bridge with `--log`, e.g. `--log Deck/1` to see everything deck 1 sends.
+
 ---
 
 ## Known limitations
