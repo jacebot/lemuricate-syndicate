@@ -202,4 +202,12 @@ For the OSC side (feedback from Syndicate), run the bridge with `--log`, e.g. `-
 
 ---
 
+## License
+
+© 2026 jacebot. The template, mapping, bridge script, docs and screenshots are licensed under [Creative Commons Attribution 4.0 (CC BY 4.0)](LICENSE). You're free to use, share and modify them, including in your own templates, as long as you give credit, for example:
+
+> Based on [Lemuricate for Syndicate](https://github.com/jacebot/lemuricate-syndicate) by jacebot (CC BY 4.0)
+
+The music heard in the demo video is not covered by this license and belongs to its owners.
+
 Not affiliated with Untitled Audio (Syndicate) or Liine (Lemur).
