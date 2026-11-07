@@ -12,7 +12,9 @@ Sits between Syndicate and the Lemur template on your iPad:
 Run:
     python3 syndicate_lemur_bridge.py --ipad <your iPad's IP>
 
-Needs Python 3 (standard library only) and ffmpeg (brew install ffmpeg).
+Needs Python 3 (standard library only) and ffmpeg:
+    macOS:    brew install ffmpeg
+    Windows:  winget install ffmpeg   (then open a new terminal so it's on the PATH)
 """
 import argparse
 import os
@@ -27,8 +29,14 @@ import time
 WAVE_POINTS = 128
 
 # Syndicate's library database. Opened read-only, only to find a track's file on disk.
-LIBRARY_DB = os.path.expanduser(
-    '~/Library/Application Support/UntitledAudioSyndicate/Syndicate/Database/Syndicate.db')
+# These are the usual places on macOS and Windows; --db overrides them.
+_DB_TAIL = os.path.join('UntitledAudioSyndicate', 'Syndicate', 'Database', 'Syndicate.db')
+LIBRARY_DB_CANDIDATES = [
+    os.path.expanduser(os.path.join('~', 'Library', 'Application Support', _DB_TAIL)),   # macOS
+    os.path.join(os.environ.get('APPDATA', ''), _DB_TAIL),                              # Windows (roaming)
+    os.path.join(os.environ.get('LOCALAPPDATA', ''), _DB_TAIL),                         # Windows (local)
+]
+LIBRARY_DB = next((p for p in LIBRARY_DB_CANDIDATES if os.path.isfile(p)), LIBRARY_DB_CANDIDATES[0])
 
 
 def log(msg):
@@ -170,9 +178,17 @@ def main():
                     help="Syndicate's OSC input port, used for the resend request (default 9090)")
     ap.add_argument('--no-resend', action='store_true',
                     help="don't ask Syndicate to resend its state at startup")
+    ap.add_argument('--db', metavar='PATH',
+                    help="path to Syndicate.db, if it isn't in the usual place")
     ap.add_argument('--log', metavar='TEXT',
                     help='print every Syndicate message whose address contains TEXT (for debugging)')
     args = ap.parse_args()
+
+    global LIBRARY_DB
+    if args.db:
+        LIBRARY_DB = args.db
+    if not os.path.isfile(LIBRARY_DB):
+        log(f'warning: Syndicate library not found at {LIBRARY_DB}. Waveforms are off; use --db PATH.')
 
     inbox = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     inbox.bind(('127.0.0.1', args.listen))
