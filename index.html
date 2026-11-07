@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lemuricate for Syndicate</title>
+<meta name="description" content="A free 4-deck Lemur iPad controller template for Syndicate, with live waveforms, meters, BPM, cue colours and touch-to-seek.">
+<meta property="og:title" content="Lemuricate for Syndicate">
+<meta property="og:description" content="Free 4-deck Lemur iPad template for Syndicate: live waveforms, meters, BPM, cue colours, touch-to-seek.">
+<meta property="og:image" content="https://jacebot.github.io/lemuricate-syndicate/images/player.webp">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --bg:#07080a; --panel:#111318; --line:#2a1a12; --text:#e9e6e1; --muted:#9a948c;
+    --orange:#ff8a2a; --blue:#3fa0ff; --pink:#ff4fa3; --teal:#2fd1c5;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  a{color:var(--blue)}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+  header{padding:56px 0 24px}
+  .tag{display:inline-block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);border:1px solid #5a2e12;border-radius:999px;padding:3px 12px}
+  h1{font-size:clamp(32px,6vw,56px);line-height:1.05;margin:16px 0 12px;letter-spacing:-.02em}
+  h1 span{color:var(--orange)}
+  .lede{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:720px;margin:0}
+  .btns{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 8px}
+  .btn{display:inline-block;padding:12px 20px;border-radius:10px;font-weight:600;text-decoration:none;border:1px solid #3a2416;color:var(--text);background:var(--panel)}
+  .btn.primary{background:var(--orange);border-color:var(--orange);color:#140a02}
+  .btn:hover{filter:brightness(1.1)}
+  figure{margin:24px 0 0}
+  figure img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--line);box-shadow:0 20px 60px rgba(255,138,42,.08)}
+  section{padding:48px 0;border-top:1px solid #16181d}
+  h2{font-size:26px;margin:0 0 20px;letter-spacing:-.01em}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .card{background:var(--panel);border:1px solid #1d2027;border-radius:12px;padding:18px}
+  .card h3{margin:0 0 6px;font-size:17px}
+  .card p{margin:0;color:var(--muted);font-size:15px}
+  .card .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:middle}
+  .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .shots img{width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
+  .shots figcaption{color:var(--muted);font-size:14px;margin-top:6px}
+  ol.steps{padding-left:22px;margin:0}
+  ol.steps li{margin:0 0 14px}
+  code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px}
+  code{background:#1a1d23;padding:2px 6px;border-radius:5px}
+  pre{background:#0f1115;border:1px solid #1d2027;border-radius:10px;padding:14px;overflow-x:auto;white-space:pre}
+  .note{border-left:3px solid var(--orange);background:#140d08;padding:14px 16px;border-radius:0 10px 10px 0}
+  .note strong{color:var(--orange)}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  td,th{text-align:left;padding:8px 10px;border-bottom:1px solid #1d2027;vertical-align:top}
+  th{color:var(--muted);font-weight:600}
+  footer{padding:32px 0 48px;color:var(--muted);font-size:14px;border-top:1px solid #16181d}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="tag">Free Lemur template</span>
+  <h1>Lemuricate for <span>Syndicate</span></h1>
+  <p class="lede">A 4-deck iPad controller for the Syndicate DJ app. Two-way: it controls the decks and mixer, and Syndicate sends back live waveforms, meters, BPM, time remaining, cue colours and pitch position.</p>
+  <div class="btns">
+    <a class="btn primary" href="https://github.com/jacebot/lemuricate-syndicate/archive/refs/heads/main.zip">Download (.zip)</a>
+    <a class="btn" href="https://github.com/jacebot/lemuricate-syndicate">View on GitHub</a>
+    <a class="btn" href="https://github.com/jacebot/lemuricate-syndicate#readme">Full setup guide</a>
+  </div>
+  <figure><img src="images/player.webp" alt="Player tab: four decks with waveforms, remaining time, BPM, pitch faders and cue pads" width="2000" height="1500"></figure>
+</header>
+
+<section>
+  <h2>What it does</h2>
+  <div class="grid">
+    <div class="card"><h3><span class="dot" style="background:var(--blue)"></span>Real waveforms</h3><p>A small Mac helper reads each loaded track and draws its waveform on the iPad. The waveform turns red in the last 30 seconds.</p></div>
+    <div class="card"><h3><span class="dot" style="background:var(--orange)"></span>Touch to seek</h3><p>Tap or drag on the waveform to jump into a track. Handy for old rips with no cue points.</p></div>
+    <div class="card"><h3><span class="dot" style="background:var(--pink)"></span>Live feedback</h3><p>Channel and master meters, track title, key, <code>-mm:ss</code> remaining (flashes near the end), master-synced BPM, and play and sync state.</p></div>
+    <div class="card"><h3><span class="dot" style="background:var(--teal)"></span>Cue colours</h3><p>Hot cue pads use Syndicate's slot colours and light up only where a cue is set.</p></div>
+    <div class="card"><h3><span class="dot" style="background:#9b7bff"></span>Pitch faders that follow</h3><p>Each fader shows the deck's real pitch position, and turns grey while Sync locks it.</p></div>
+    <div class="card"><h3><span class="dot" style="background:#7bd36b"></span>Mixer &amp; FX</h3><p>Trim, 3-band EQ with kill switches, filter with one-tap resets for Cutoff, Reso and Width, FX macros, and a browse dial.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Screens</h2>
+  <div class="shots">
+    <figure><img src="images/mixer.webp" alt="Mixer tab" loading="lazy" width="2000" height="1500"><figcaption>Mixer: EQ kills, filter resets, meters</figcaption></figure>
+    <figure><img src="images/fx.webp" alt="FX tab" loading="lazy" width="2000" height="1500"><figcaption>FX: 8 macros per channel</figcaption></figure>
+    <figure><img src="images/browser.webp" alt="Browser tab" loading="lazy" width="2000" height="1500"><figcaption>Browser: endless browse dial and load buttons</figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <h2>What's included</h2>
+  <table>
+    <tr><th>File</th><th>What it is</th></tr>
+    <tr><td><code>Lemuricate-4deck.jzml</code></td><td>The Lemur template. Open it in the Lemur Editor and sync it to your iPad.</td></tr>
+    <tr><td><code>Lemur-Syndicate-4deck.sdcmap</code></td><td>The Syndicate MIDI mapping profile for 4 decks, the mixer, FX and the browser.</td></tr>
+    <tr><td><code>syndicate_lemur_bridge.py</code></td><td>An optional Mac helper (Python 3 and ffmpeg). It passes Syndicate's feedback to the iPad and adds the waveforms.</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>Quick setup</h2>
+  <ol class="steps">
+    <li><strong>Lemur:</strong> sync <code>Lemuricate-4deck.jzml</code> to the iPad. Set MIDI target 0 to your Mac (Daemon Input 0). Add <strong>OSC target 1</strong> = your Mac's IP, port <code>9090</code>.</li>
+    <li><strong>Syndicate → MIDI:</strong> import <code>Lemur-Syndicate-4deck.sdcmap</code> and bind it to Daemon Input 0.</li>
+    <li><strong>Syndicate → OSC:</strong> turn input <strong>on</strong> (port 9090) and feedback <strong>on</strong>. Set the feedback host to <code>127.0.0.1</code>, port <code>9096</code>, and subscribe to the deck, mixer and header messages listed in the guide.</li>
+    <li><strong>Start the bridge</strong> on the Mac:
+<pre>python3 syndicate_lemur_bridge.py --ipad YOUR.IPAD.IP</pre></li>
+  </ol>
+  <div class="note"><strong>Blank decks? Resend the state.</strong> Syndicate only sends values when they change, and a deck's title, BPM, cues and waveform are only sent when a track loads. If Lemur or the bridge starts after your tracks are already loaded, the decks show blank until Syndicate resends. To trigger a resend: restart the bridge, reload the template in Lemur, reload the track, or run:
+<pre>python3 -c "import socket,struct;socket.socket(2,2).sendto(b'/Syndicate/Feedback/Resend\0\0,i\0\0'+struct.pack('>i',1),('127.0.0.1',9090))"</pre>
+  Syndicate's OSC input must be on for any of these to work.</div>
+  <p>The <a href="https://github.com/jacebot/lemuricate-syndicate#readme">full guide</a> covers every setting, every control and troubleshooting.</p>
+</section>
+
+<footer>
+  Free to use. Not affiliated with Untitled Audio (Syndicate) or Liine (Lemur). Mac only, tested with Lemur 5 on iPad.
+</footer>
+
+</div>
+<!-- Hit counter: GoatCounter (free, no cookies). Create a site at https://www.goatcounter.com,
+     then replace YOURCODE below with your site code. Until then nothing is sent. -->
+<script>
+  (function(){
+    var code = 'YOURCODE';
+    if (code === 'YOURCODE') return;
+    var s = document.createElement('script');
+    s.async = true; s.src = 'https://gc.zgo.at/count.js';
+    s.setAttribute('data-goatcounter', 'https://' + code + '.goatcounter.com/count');
+    document.body.appendChild(s);
+  })();
+</script>
+</body>
+</html>
