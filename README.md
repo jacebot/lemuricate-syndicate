@@ -4,6 +4,8 @@ A 4-deck Lemur (iPad) controller template for **Syndicate**. It has two-way cont
 
 ![Player tab](images/player.webp)
 
+▶️ **[Watch it working (35 s video)](images/demo.mp4)**
+
 | Mixer | FX | Browser |
 |---|---|---|
 | ![Mixer tab](images/mixer.webp) | ![FX tab](images/fx.webp) | ![Browser tab](images/browser.webp) |
