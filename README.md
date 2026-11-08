@@ -140,15 +140,15 @@ Waveforms are cached for the session, so reloading a track is instant.
 ### Per deck (1–4)
 - **Play/Pause:** the icon follows Syndicate's real state: pause while playing, play while stopped. Each tap sends one play/pause press. If a deck was still playing when you loaded a new track, Syndicate keeps it playing, so check the icon before you tap.
 - **Sync / Master:** the light follows Syndicate's Sync state.
-- **Cues 1–8:** each pad uses Syndicate's colour for that slot, from Syndicate's BAUHAUS cue colour preset. A slot with a cue is lit dimly in its colour, and an empty slot is dark grey. Pressing a pad shows the full colour. If you change the cue colour preset in Syndicate, the colours in the template's `onCues` scripts need updating.
+- **Cues 1–8:** each pad uses Syndicate's color for that slot, from Syndicate's BAUHAUS cue color preset. A slot with a cue is lit dimly in its color, and an empty slot is dark gray. Pressing a pad shows the full color. If you change the cue color preset in Syndicate, the colors in the template's `onCues` scripts need updating.
 - **Slip loops:** 1/32, 1/16, 1/8, 1/4, 1/2, 1 beat.
 - **Loop / Loop In / Loop Out / Beat skip ◄ ►.**
 - **Tempo fader**, **Pitch bend + / −**, **Backspin**, **Reverse**.
-- **Tempo fader feedback:** the fader follows the deck's real pitch position, using `/Syndicate/Deck/N/TempoSlider`, scaled from −1…+1. When Sync is on, Syndicate locks the slider and the fader turns **grey**. If you move it while it's locked, it snaps back to the deck's value when you let go.
+- **Tempo fader feedback:** the fader follows the deck's real pitch position, using `/Syndicate/Deck/N/TempoSlider`, scaled from −1…+1. When Sync is on, Syndicate locks the slider and the fader turns **gray**. If you move it while it's locked, it snaps back to the deck's value when you let go.
 
 ### Deck display
 - **Title:** "Title – Artist", updated when a track loads.
-- **Waveform:** blue for the played part, grey for the rest. It turns **red in the last 30 seconds**. A white line marks the playhead. Without the bridge, it falls back to a blue progress bar.
+- **Waveform:** blue for the played part, gray for the rest. It turns **red in the last 30 seconds**. A white line marks the playhead. Without the bridge, it falls back to a blue progress bar.
 - **Touch to seek:** tap anywhere on the waveform to jump to that point. Drag to scrub through the track. This is handy for old rips with no cue points. It sends two things: Syndicate's `/Syndicate/Deck/N/WaveformSeek` OSC command, through OSC target 1, and a MIDI `deck.N.waveform_seek` (channel 16, CC1–4) through the mapping. MIDI gives 128 positions across the track. Careful: a stray touch on a playing deck will jump it.
 - **Key:** shown under the waveform.
 - **REMAIN:** time left as `-mm:ss`. In the **last 30 seconds** it flashes red and white, once per second.
@@ -163,7 +163,7 @@ Waveforms are cached for the session, so reloading a track is instant.
 ### Mixer (per channel)
 - **Volume, Trim, EQ Low/Mid/High, Filter**, **Cue (headphones)**, **Mute** and **FX on**, plus FX macros 1–8.
 - **EQ kill switches (Lo/Mid/Hi):** a kill drops that band to zero. Releasing it restores the knob to where it was before the kill.
-- **FX resets (Cutoff / Reso / Width):** these send the knob back to its default. Cutoff goes to centre (50%), Reso to 50%, Width to 100%.
+- **FX resets (Cutoff / Reso / Width):** these send the knob back to its default. Cutoff goes to center (50%), Reso to 50%, Width to 100%.
 
 ### Meters
 - The channel meters show each channel's level.

@@ -258,7 +258,7 @@ oscout(1, '/Syndicate/Feedback/Resend', 1);" trigger_script="" trigger_type="5" 
 <VARIABLE name="tkey=''" send="0" osc_target="0" osc_trigger="1" osc_message="/AppContainer/Player1/Container/Canvas/tkey" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="wave=0" send="0" osc_target="0" osc_trigger="1" osc_message="/AppContainer/Player1/Container/Canvas/wave" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="seekLast=0" send="0" osc_target="0" osc_trigger="1" osc_message="/AppContainer/Player1/Container/Canvas/seekLast" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="draw()" script="// Draws the deck display: waveform bars (blue = played, grey = to come, red = last 30 s),
+<SCRIPT name="draw()" script="// Draws the deck display: waveform bars (blue = played, gray = to come, red = last 30 s),
 // or a plain progress bar when no waveform has arrived, then the playhead and the key.
 decl c = getobject();
 decl r = getattribute(c, 'rect');
@@ -383,7 +383,7 @@ playState = OSC_ARGS[0];
 PlayButton.x = playState;
 PlayButton.light = playState;" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/Syndicate/Deck/1/Playing" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
 <SCRIPT name="onCues(OSC_ARGS)" script="// Which of the 8 hot cue slots are set (slot number or 0, then the cue name).
-// Set slots light dimly in Syndicate's slot colour, empty ones go dark grey.
+// Set slots light dimly in Syndicate's slot color, empty ones go dark gray.
 setattribute(Roll1.CustomButton11, 'color', {OSC_ARGS[0] ? 6758171 : 3355443, 15156797});
 setattribute(Roll1.CustomButton12, 'color', {OSC_ARGS[2] ? 7094038 : 3355443, 15895602});
 setattribute(Roll1.CustomButton14, 'color', {OSC_ARGS[4] ? 7495976 : 3355443, 16767066});
@@ -397,7 +397,7 @@ setattribute(Roll1.CustomButton18, 'color', {OSC_ARGS[14] ? 2309686 : 3355443, 5
 if (PlayButton.x != playState) {
   midiout(0, {0xB0, 19, 127}); midiout(0, {0xB0, 19, 0});
 }" trigger_script="PlayButton.x != playState" trigger_type="0" trigger="1" clock="0" clock_div="4" osc_message="/AppContainer/Player1/playTouch" midi_message="0x90,0x90,0,0" midi_target="-1" flag="1"/>
-<SCRIPT name="onSync(OSC_ARGS)" script="// Sync state. While synced, show the master BPM and grey out the locked pitch fader.
+<SCRIPT name="onSync(OSC_ARGS)" script="// Sync state. While synced, show the master BPM and gray out the locked pitch fader.
 SyncButton.light = OSC_ARGS[0];
 syncOn = OSC_ARGS[0];
 BPM.value = (syncOn * (hdrBpm > 0)) ? hdrBpm : trackBpm;
@@ -532,7 +532,7 @@ if (Fader.z == 0) Fader.x = tsVal;" trigger_script="Fader.z" trigger_type="0" tr
 <VARIABLE name="tkey=''" send="0" osc_target="0" osc_trigger="1" osc_message="/AppContainer/Player2/Container/Canvas/tkey" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="wave=0" send="0" osc_target="0" osc_trigger="1" osc_message="/AppContainer/Player2/Container/Canvas/wave" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="seekLast=0" send="0" osc_target="0" osc_trigger="1" osc_message="/AppContainer/Player2/Container/Canvas/seekLast" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="draw()" script="// Draws the deck display: waveform bars (blue = played, grey = to come, red = last 30 s),
+<SCRIPT name="draw()" script="// Draws the deck display: waveform bars (blue = played, gray = to come, red = last 30 s),
 // or a plain progress bar when no waveform has arrived, then the playhead and the key.
 decl c = getobject();
 decl r = getattribute(c, 'rect');
@@ -657,7 +657,7 @@ playState = OSC_ARGS[0];
 PlayButton.x = playState;
 PlayButton.light = playState;" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/Syndicate/Deck/2/Playing" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
 <SCRIPT name="onCues(OSC_ARGS)" script="// Which of the 8 hot cue slots are set (slot number or 0, then the cue name).
-// Set slots light dimly in Syndicate's slot colour, empty ones go dark grey.
+// Set slots light dimly in Syndicate's slot color, empty ones go dark gray.
 setattribute(Roll1.CustomButton11, 'color', {OSC_ARGS[0] ? 6758171 : 3355443, 15156797});
 setattribute(Roll1.CustomButton12, 'color', {OSC_ARGS[2] ? 7094038 : 3355443, 15895602});
 setattribute(Roll1.CustomButton14, 'color', {OSC_ARGS[4] ? 7495976 : 3355443, 16767066});
@@ -671,7 +671,7 @@ setattribute(Roll1.CustomButton18, 'color', {OSC_ARGS[14] ? 2309686 : 3355443, 5
 if (PlayButton.x != playState) {
   midiout(0, {0xB0, 53, 127}); midiout(0, {0xB0, 53, 0});
 }" trigger_script="PlayButton.x != playState" trigger_type="0" trigger="1" clock="0" clock_div="4" osc_message="/AppContainer/Player2/playTouch" midi_message="0x90,0x90,0,0" midi_target="-1" flag="1"/>
-<SCRIPT name="onSync(OSC_ARGS)" script="// Sync state. While synced, show the master BPM and grey out the locked pitch fader.
+<SCRIPT name="onSync(OSC_ARGS)" script="// Sync state. While synced, show the master BPM and gray out the locked pitch fader.
 SyncButton.light = OSC_ARGS[0];
 syncOn = OSC_ARGS[0];
 BPM.value = (syncOn * (hdrBpm > 0)) ? hdrBpm : trackBpm;
@@ -806,7 +806,7 @@ if (Fader.z == 0) Fader.x = tsVal;" trigger_script="Fader.z" trigger_type="0" tr
 <VARIABLE name="tkey=''" send="0" osc_target="0" osc_trigger="1" osc_message="/AppContainer/Player3/Container/Canvas/tkey" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="wave=0" send="0" osc_target="0" osc_trigger="1" osc_message="/AppContainer/Player3/Container/Canvas/wave" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="seekLast=0" send="0" osc_target="0" osc_trigger="1" osc_message="/AppContainer/Player3/Container/Canvas/seekLast" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="draw()" script="// Draws the deck display: waveform bars (blue = played, grey = to come, red = last 30 s),
+<SCRIPT name="draw()" script="// Draws the deck display: waveform bars (blue = played, gray = to come, red = last 30 s),
 // or a plain progress bar when no waveform has arrived, then the playhead and the key.
 decl c = getobject();
 decl r = getattribute(c, 'rect');
@@ -931,7 +931,7 @@ playState = OSC_ARGS[0];
 PlayButton.x = playState;
 PlayButton.light = playState;" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/Syndicate/Deck/3/Playing" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
 <SCRIPT name="onCues(OSC_ARGS)" script="// Which of the 8 hot cue slots are set (slot number or 0, then the cue name).
-// Set slots light dimly in Syndicate's slot colour, empty ones go dark grey.
+// Set slots light dimly in Syndicate's slot color, empty ones go dark gray.
 setattribute(Roll1.CustomButton11, 'color', {OSC_ARGS[0] ? 6758171 : 3355443, 15156797});
 setattribute(Roll1.CustomButton12, 'color', {OSC_ARGS[2] ? 7094038 : 3355443, 15895602});
 setattribute(Roll1.CustomButton14, 'color', {OSC_ARGS[4] ? 7495976 : 3355443, 16767066});
@@ -945,7 +945,7 @@ setattribute(Roll1.CustomButton18, 'color', {OSC_ARGS[14] ? 2309686 : 3355443, 5
 if (PlayButton.x != playState) {
   midiout(0, {0xB1, 1, 127}); midiout(0, {0xB1, 1, 0});
 }" trigger_script="PlayButton.x != playState" trigger_type="0" trigger="1" clock="0" clock_div="4" osc_message="/AppContainer/Player3/playTouch" midi_message="0x90,0x90,0,0" midi_target="-1" flag="1"/>
-<SCRIPT name="onSync(OSC_ARGS)" script="// Sync state. While synced, show the master BPM and grey out the locked pitch fader.
+<SCRIPT name="onSync(OSC_ARGS)" script="// Sync state. While synced, show the master BPM and gray out the locked pitch fader.
 SyncButton.light = OSC_ARGS[0];
 syncOn = OSC_ARGS[0];
 BPM.value = (syncOn * (hdrBpm > 0)) ? hdrBpm : trackBpm;
@@ -1080,7 +1080,7 @@ if (Fader.z == 0) Fader.x = tsVal;" trigger_script="Fader.z" trigger_type="0" tr
 <VARIABLE name="tkey=''" send="0" osc_target="0" osc_trigger="1" osc_message="/AppContainer/Player4/Container/Canvas/tkey" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="wave=0" send="0" osc_target="0" osc_trigger="1" osc_message="/AppContainer/Player4/Container/Canvas/wave" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="seekLast=0" send="0" osc_target="0" osc_trigger="1" osc_message="/AppContainer/Player4/Container/Canvas/seekLast" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="draw()" script="// Draws the deck display: waveform bars (blue = played, grey = to come, red = last 30 s),
+<SCRIPT name="draw()" script="// Draws the deck display: waveform bars (blue = played, gray = to come, red = last 30 s),
 // or a plain progress bar when no waveform has arrived, then the playhead and the key.
 decl c = getobject();
 decl r = getattribute(c, 'rect');
@@ -1205,7 +1205,7 @@ playState = OSC_ARGS[0];
 PlayButton.x = playState;
 PlayButton.light = playState;" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/Syndicate/Deck/4/Playing" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
 <SCRIPT name="onCues(OSC_ARGS)" script="// Which of the 8 hot cue slots are set (slot number or 0, then the cue name).
-// Set slots light dimly in Syndicate's slot colour, empty ones go dark grey.
+// Set slots light dimly in Syndicate's slot color, empty ones go dark gray.
 setattribute(Roll1.CustomButton11, 'color', {OSC_ARGS[0] ? 6758171 : 3355443, 15156797});
 setattribute(Roll1.CustomButton12, 'color', {OSC_ARGS[2] ? 7094038 : 3355443, 15895602});
 setattribute(Roll1.CustomButton14, 'color', {OSC_ARGS[4] ? 7495976 : 3355443, 16767066});
@@ -1219,7 +1219,7 @@ setattribute(Roll1.CustomButton18, 'color', {OSC_ARGS[14] ? 2309686 : 3355443, 5
 if (PlayButton.x != playState) {
   midiout(0, {0xB1, 53, 127}); midiout(0, {0xB1, 53, 0});
 }" trigger_script="PlayButton.x != playState" trigger_type="0" trigger="1" clock="0" clock_div="4" osc_message="/AppContainer/Player4/playTouch" midi_message="0x90,0x90,0,0" midi_target="-1" flag="1"/>
-<SCRIPT name="onSync(OSC_ARGS)" script="// Sync state. While synced, show the master BPM and grey out the locked pitch fader.
+<SCRIPT name="onSync(OSC_ARGS)" script="// Sync state. While synced, show the master BPM and gray out the locked pitch fader.
 SyncButton.light = OSC_ARGS[0];
 syncOn = OSC_ARGS[0];
 BPM.value = (syncOn * (hdrBpm > 0)) ? hdrBpm : trackBpm;
